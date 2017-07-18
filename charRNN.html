@@ -88,38 +88,72 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <p></p>
 
+                    <p>Generating sequence of sentences requires some persistence, as last few words determines the next words. Recurrent Neural Networks(RNNs) are made for these type of tasks</p>
+
+                    <blockquote>But as they are harder to train and do not hold the long term dependencies,thus LSTMs are more popular.  I won't cover LSTMs, but If you want to know more about them read the amazing blog by <a href='http://colah.github.io/posts/2015-08-Understanding-LSTMs/'>Christopher Olah</a></blockquote>
                     <p></p>
 
-                    <p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.</p>
+                    <p>You can train your model with any form of text like Shakerspeare's ,linux code base or even on Game of Thrones script, I worked with EdSheeran's Songs (<a  href='https://github.com/isarth/generating_lyrics/blob/master/songs.csv'>You can download data from here</a>)  </p>
 
-                    <p>A Chinese tale tells of some men sent to harm a young girl who, upon seeing her beauty, become her protectors rather than her violators. That's how I felt seeing the Earth for the first time. I could not help but love and cherish her.</p>
+                    <h2 class="section-heading">Building the model</h2>
 
-                    <p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.</p>
+                    <p>1.) Importing all the Dependencies</p>
 
-                    <h2 class="section-heading">The Final Frontier</h2>
+                    <a >
+                        <img  src="img/1.jpeg" alt="">
+                    </a>
 
-                    <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
+                    <p>2.) Loading the data and combining all songs in txt .</p>
 
-                    <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
+                    <a >
+                        <img  src="img/2.jpeg" alt="">
+                    </a>
 
-                    <blockquote>The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+                    <p>3.) Assigning all unique chars to their corresponding index number and storing in the dictionary. Similar to generating bag of words model. </p>
 
-                    <p>Spaceflights cannot be stopped. This is not the work of any one man or even a group of men. It is a historical process which mankind is carrying out in accordance with the natural laws of human development.</p>
+                    <a >
+                        <img  src="img/3.jpeg" alt="">
+                    </a>
 
+                    <p>4.) Generating the training data. Each sentence will be of length 40 which will be used to predict the next char.  </p>
+
+                    <a>
+                        <img  src="img/4.jpeg" alt="">
+                    </a>
+                    <p>5.)Input in Lstm is in the form of Numbers. Each char is a one hot vector of length vocab size. Each sentence is of len 40. Shape of X :(No_sent,sent_len,vocab_size)</p>
+
+                    <a >
+                        <img  src="img/5.jpeg" alt="">
+                    </a>
+                    <p>6.) Making a Sequential model in keras .</p>
+
+                    <a >
+                        <img  src="img/6.jpeg" alt="">
+                    </a>
+                    <p>7.) Training the model. Don't train your model for too long otherwise it will over-fit.</p>
+
+                    <a >
+                        <img  src="img/7.jpeg" alt="">
+                    </a>
+                    <p>8.) Using the output generated through the model to generate song of 1900 (avg length of his songs ) char length song .</p>
+
+                    <a >
+                        <img  src="img/8.jpeg" alt="">
+                    </a>
                     <h2 class="section-heading">Song generated after 10 Epochs.</h2>
 
-
+                    <p></p>
 
                     <a >
                         <img  src="img/song.jpeg" alt="">
                     </a>
-                    <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
+                    <span class="caption text-muted">Doesn't it look like one of his Songs .</span>
 
-                    <p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p>
 
-                    <p>As I stand out here in the wonders of the unknown at Hadley, I sort of realize there’s a fundamental truth to our nature, Man must explore, and this is exploration at its greatest.</p>
+                    <p>You can check out the complete code on <a href='https://github.com/isarth/generating_lyrics'>Github</a></p>
+                    <p>If you face any Errors or difficulty, Feel free to contact me through Facebook or whatever you like.</p>
 
-                    <p>Placeholder text by <a href="http://spaceipsum.com/">Space Ipsum</a>. Photographs by <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>.</p>
+
                 </div>
             </div>
         </div>
