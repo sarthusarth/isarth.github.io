@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["hellorohan@outlook.com"]
 
   spec.summary       = %q{A free and open-source Jekyll theme. Great for blogs and easy to customize.}
-  spec.homepage      = "https://github.com/rohanchandra/type-theme"
+  spec.homepage      = "https://github.com/isarth/type-theme"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").select do |f|
