@@ -80,6 +80,7 @@ sass:
   style: :compressed
 plugins: [jekyll-paginate]
 theme: 
-exclude:
-  - Gemfile
-  - Gemfile.lock
+
+#exclude:
+# - Gemfile
+# - Gemfile.lock 
