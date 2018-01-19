@@ -1,6 +1,6 @@
 var store = [{
         "title": "Welcome to Jekyll!",
-        "excerpt":"gdfgddgfgd","categories": ["jekyll","update"],
+        "excerpt":"This is my first post","categories": ["jekyll","update"],
         "tags": [],
         "url": "http://localhost:4000/jekyll/update/hello/",
-        "teaser":null}]
+        "teaser":"http://localhost:4000/assets/images/earth.jpg"}]

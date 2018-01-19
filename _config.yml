@@ -5,18 +5,18 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Deep Learning Notes"
+title                    : "Sarthak's Blog"
 title_separator          : "-"
 name                     : "Sarthak Anand"
 description              : "Shareable notes for Deep Learning"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+repository               : "isarth/isarth.github.io"
+teaser                   : "/assets/images/a.jpg"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -51,7 +51,7 @@ reCaptcha:
   secret                 :
 atom_feed:
   path                   : # blank (default) uses feed.xml
-search                   : # true, false (default)
+search                   : true # true, false (default)
 search_full_content      : # true, false (default)
 
 # SEO Related
@@ -62,7 +62,7 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               :
+  username               : isarth23
 facebook:
   username               :
   app_id                 :
@@ -73,7 +73,11 @@ og_image                 : # Open Graph/Twitter default site image
 social:
   type                   : # Person or Organization (defaults to Person)
   name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  links:
+    - "https://facebook.com/isarth"
+    - "https://twitter.com/isarth23"
+
+    # An array of links to social media profiles
 
 # Analytics
 analytics:
@@ -84,18 +88,18 @@ analytics:
 
 # Site Author
 author:
-  name             : "Sarthak Anand"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  name             : #
+  avatar           : "/assets/images/pic.jpg"
   bio              : "Deep Learning Notes"
-  location         : "Delhi,India"
-  email            :
+  location         : #
+  email            : "isarth@me.com"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
-  facebook         :
+  facebook         : "isarth"
   foursquare       :
   github           :
   gitlab           :
@@ -109,7 +113,7 @@ author:
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
   steam            : # "steamId" (the last part of your profile url, e.g. https://steamcommunity.com/id/steamId/)
   tumblr           :
-  twitter          :
+  twitter          : "isarth23"
   vine             :
   weibo            :
   xing             :
