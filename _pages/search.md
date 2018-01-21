@@ -1,5 +1,4 @@
 ---
 layout: search
-baseurl: /search/
+permalink: /search/
 ---
-trtrey

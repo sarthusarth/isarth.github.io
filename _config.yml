@@ -9,7 +9,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Sarthak's Blog"
+title                    : "Home"
 title_separator          : "-"
 name                     : "Sarthak Anand"
 description              : "Shareable notes for Deep Learning"
@@ -266,3 +266,11 @@ defaults:
     values:
       layout: single
       author_profile: true
+
+  # _docs
+  - scope:
+      path: ""
+      type: docs
+    values:
+      sidebar:
+        nav: "docs"
