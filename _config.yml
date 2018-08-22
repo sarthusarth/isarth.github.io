@@ -12,11 +12,11 @@ locale                   : "en-US"
 title                    : "Home"
 title_separator          : "-"
 name                     : "Sarthak Anand"
-description              : "Shareable notes for Deep Learning"
+description              : "Blog about Deep Learning"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "isarth/isarth.github.io"
-teaser                   : "/assets/images/a.jpg"
+teaser                   : #"/assets/images/a.jpg"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -29,7 +29,7 @@ comments:
     # https://developers.facebook.com/docs/plugins/comments
     appid                :
     num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
+    colorscheme          :  # "light" (default), "dark"
 staticman:
   allowedFields          : # ['name', 'email', 'url', 'message']
   branch                 : # "master"
@@ -88,10 +88,10 @@ analytics:
 
 # Site Author
 author:
-  name             : #
-  avatar           : "/assets/images/pic.jpg"
-  bio              : "Deep Learning Notes"
-  location         : #
+  name             : Sarthak Anand
+  avatar           : #"/assets/images/IMG.jpg"
+  bio              : "Hang in there you will understand"
+  location         :  #
   email            : "isarth@me.com"
   uri              :
   home             : # null (default), "absolute or relative url to link to author home"
@@ -101,13 +101,13 @@ author:
   flickr           :
   facebook         : "isarth"
   foursquare       :
-  github           :
+  github           :  "isarth"
   gitlab           :
   google_plus      :
   keybase          :
   instagram        :
   lastfm           :
-  linkedin         : # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
+  linkedin         : isarth # "john-doe-12345678" (the last part of your profile url, e.g. https://www.linkedin.com/in/john-doe-12345678)
   pinterest        :
   soundcloud       :
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. https://stackoverflow.com/users/123456/username)
@@ -254,7 +254,7 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: true
       comments:  true
       share: true
@@ -265,7 +265,7 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: true
+      author_profile: false
 
   # _docs
   - scope:
