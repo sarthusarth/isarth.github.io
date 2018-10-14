@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-06T17:18:10+05:30</updated><id>http://localhost:4000/</id><title type="html">Home</title><subtitle>Blog about Deep Learning</subtitle><author><name>Sarthak Anand</name><email>isarth@me.com</email></author><entry><title type="html">PageRank</title><link href="http://localhost:4000/pagerank/" rel="alternate" type="text/html" title="PageRank" /><published>2018-08-09T00:00:00+05:30</published><updated>2018-08-09T00:00:00+05:30</updated><id>http://localhost:4000/pagerank</id><content type="html" xml:base="http://localhost:4000/pagerank/">&lt;p&gt;In simple terms Page Rank is an intutive way of ranking web pages. Which formed the basis for Google’s web indexing algorithm. Belive it or not Page Rank is very intutive algorithm. Which I will be explaing in this post. The challenging part about Page Rank is the scaling. But that isn’t what this post is about.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-15T03:03:28+05:30</updated><id>http://localhost:4000/</id><title type="html">Home</title><subtitle>Blog about Deep Learning</subtitle><author><name>Sarthak Anand</name><email>isarth@me.com</email></author><entry><title type="html">PageRank</title><link href="http://localhost:4000/pagerank/" rel="alternate" type="text/html" title="PageRank" /><published>2018-08-09T00:00:00+05:30</published><updated>2018-08-09T00:00:00+05:30</updated><id>http://localhost:4000/pagerank</id><content type="html" xml:base="http://localhost:4000/pagerank/">&lt;p&gt;In simple terms, PageRank is an intuitive way of ranking web pages. Which formed the basis for Google’s web indexing algorithm during its early phase. Believe it or not Page Rank is a very intuitive algorithm, which is why I wrote this post (it is that easy!). The only challenging part of Page Rank is scaling it over the whole internet, which is not something anyone might be interested in. Apart from that, I will be covering the following in this post:&lt;/p&gt;
 
-&lt;p&gt;In this post I will be covering the following:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Basic Idea behind Page Rank&lt;/li&gt;
   &lt;li&gt;Understanding the Pank Rank algorithm&lt;/li&gt;
@@ -8,32 +7,56 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;basic-idea-behind-page-rank&quot;&gt;Basic Idea behind Page Rank&lt;/h2&gt;
-&lt;p&gt;The intutution behind the Page-Rank is based on the idea that popularity of a webpage is determined not only the number of incoming links but also by the kind on incomings links. Link from highly rank pages contribute more than lower rank webpages. In the end the page rank of the webpage is determined by the equation:
-&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;The intuition behind the Page-Rank is based on the idea that popularity of a webpage is determined not only the number of incoming links but also by the kind on incomings links. Citations from highly ranked pages contribute more than lower ranked web pages. The page rank of a web page A cited by web page B shown in Fig. 1 is given the equation:&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/Page_rank/ex.png&quot; /&gt;
+&lt;figcaption align=&quot;center&quot;&gt;Fig.1 Example of web graph.&lt;/figcaption&gt;
+&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;
+&lt;/script&gt;
 
 &lt;p&gt;\begin{equation}
  PR(A)=(1-d)+ d* P(B,A)*PR(B) 
 \end{equation}&lt;/p&gt;
 
-&lt;p align=&quot;center&quot;&gt;
+&lt;p align=&quot;left&quot;&gt;
  PR(A) : PageRank of Page A &lt;br /&gt;
  PR(B) : PageRank of Page B &lt;br /&gt;
- P(B,A): Probability going from B to A &lt;br /&gt;
+ P(B,A): Probability going from B to A (here it is one)&lt;br /&gt;
  d : is known as Damping factor, to add some randomness to the equation. 
 &lt;/p&gt;
+&lt;p&gt;Page rank over the complete web graph is calculated until it converges to final values.&lt;/p&gt;
 &lt;h2 id=&quot;page-rank-algorithm&quot;&gt;Page Rank Algorithm&lt;/h2&gt;
-&lt;p&gt;To understand how page is implement over the web graph, consider a graph of webpages having links shown by the arrow. Note if there are web pages with no out link then the do not contribute to the page ranking.&lt;/p&gt;
+&lt;p&gt;To have a better understanding how page rank works, consider a graph (shown by Fig. 2) of webpages having links shown by the arrow. Note if there are web pages with no out link then the do not contribute to the page ranking (they are usually refered as dangling pages).&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/pg.png&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;Initially page rank of all the web pages is fixed to 1 and over an interative process the algorithm converges and page rank of each page is determined. Expressing the web graph in terms of probabilities we get a weighted graph.&lt;/p&gt;
+&lt;img src=&quot;/assets/images/Page_rank/graph.png&quot; /&gt;
+&lt;figcaption align=&quot;center&quot;&gt;Fig.2&lt;/figcaption&gt;
+&lt;/p&gt;
+&lt;p&gt;Initially page rank of all the web pages is taken as 1. Weight of the edge is the probability of going from a web page X to Y ( The web page A has 2 out links therefore probability to go a single web page is 1/2 ). After expressing the web graph in terms of probabilities the web graph looks something like shown in the Fig.3. The page rank of each web page is determined by applying the PageRank equation. This process is repeated until the algorithm converges i.e. the values of page rank do change beyond an small value ( know as epsilon usually fixed as 1e-4 ). The damping factor (d) introduced is to add some randomness over the web graph i.e. d is probability that a user will move to the linked web page and 1-d is the probablity of choosing a random web page, it is usually taken as 0.85.&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/Artboard.png&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;Weight of the edge is the probability of going from a web page X to Y ( The web page A has 2 out links therefore probability to go a single web page is 1/2 ). After expressing the web graph in terms of probabilities, the page rank of each web page can determined by applying the PageRank equation. This process is repeated until the algorithm converges i.e. the values of page rank do change beyond an small value ( know as epsilon usually fixed as 1e-4 ). The damping factor introduced to add randomness over the web graph is usually taken as 0.85. &lt;br /&gt;
+&lt;img src=&quot;/assets/images/Page_rank/graph_prob.png&quot; /&gt;
+&lt;figcaption align=&quot;center&quot;&gt;Fig.3&lt;/figcaption&gt;
+&lt;/p&gt;
+&lt;p&gt;For iteration 1: &lt;br /&gt;
+&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;
+&lt;/script&gt;
+ &lt;script type=&quot;math/tex&quot;&gt;PR(C)=(1-d) + d*( P(A,C)*PR(A) + P(B,C)*PR(B) + P(D,C)*PR(D))&lt;/script&gt;
+ &lt;br /&gt;
+ &lt;script type=&quot;math/tex&quot;&gt;PR(C)=(0.15)+ 0.85*( 0.5*1 + 1*1 + 1*1) = 2.275&lt;/script&gt;
 &lt;br /&gt;
-The interative process can also be expressed in terms of matrix operations. Where matrix C represents the probability transition graph ( C[i][j] = probability of the user transitioning from page i to page j ). The page rank equation is now expressed using dot products as:
+&lt;br /&gt;
+The PR(C) can also be calculated by matrix dot product.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/Page_rank/pr_c.png&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;Similarly extendting this for all the web pages we end up with the equation:
 \begin{equation}
  PR=(1-d)+ d* C^T.PR 
 \end{equation}
-The C matrix of our example can be expressed as the matrix represented below. Also the intial page ranks are assinged 1 for all the web pages.&lt;/p&gt;
+Where matrix C represents the probability transition ( C[i][j] = probability of the user transitioning from page i to page j).
+The C matrix of our example can be expressed as the matrix represented below. Also the intial page ranks are as assinged 1 for all the web pages.&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;/assets/images/matrix.png&quot; /&gt;&lt;/p&gt;</content><author><name>Sarthak Anand</name><email>isarth@me.com</email></author></entry><entry><title type="html">Extractive Text Summary using TextRank</title><link href="http://localhost:4000/hello/" rel="alternate" type="text/html" title="Extractive Text Summary using TextRank " /><published>2018-08-09T00:00:00+05:30</published><updated>2018-08-09T00:00:00+05:30</updated><id>http://localhost:4000/hello</id><content type="html" xml:base="http://localhost:4000/hello/">&lt;p&gt;This is my first post&lt;/p&gt;</content><author><name>Sarthak Anand</name><email>isarth@me.com</email></author><summary type="html">This is my first post</summary></entry></feed>
+&lt;img src=&quot;/assets/images/page_rank/matrix.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;implementing-page-rank&quot;&gt;Implementing Page Rank&lt;/h2&gt;</content><author><name>Sarthak Anand</name><email>isarth@me.com</email></author><summary type="html">Indexing the web pages</summary></entry><entry><title type="html">Extractive Text Summary using TextRank</title><link href="http://localhost:4000/hello/" rel="alternate" type="text/html" title="Extractive Text Summary using TextRank " /><published>2018-08-09T00:00:00+05:30</published><updated>2018-08-09T00:00:00+05:30</updated><id>http://localhost:4000/hello</id><content type="html" xml:base="http://localhost:4000/hello/">&lt;p&gt;Upcoming Blog&lt;/p&gt;</content><author><name>Sarthak Anand</name><email>isarth@me.com</email></author><summary type="html">Upcoming Blog</summary></entry></feed>
