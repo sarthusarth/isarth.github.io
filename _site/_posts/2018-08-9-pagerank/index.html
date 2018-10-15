@@ -208,7 +208,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>In simple terms, PageRank is an intuitive way of ranking web pages. Which formed the basis for Google’s web indexing algorithm during its early phase. Believe it or not Page Rank is a very intuitive algorithm, which is why I wrote this post (it is that easy!). The only challenging part of Page Rank is scaling it over the whole internet, which is not something anyone might be interested in. Apart from that, I will be covering the following in this post:</p>
+        <p>In simple terms, PageRank is an intuitive way of ranking web pages, which formed the basis for google’s web indexing algorithm during its early phase. Believe it or not Page Rank is a very intuitive algorithm. In this article, you’ll learn about the ituition behind page rank and implementing page rank in python. The article is divided into following sections:</p>
 
 <ul>
   <li>Basic Idea behind Page Rank</li>
@@ -260,16 +260,35 @@ The PR(C) can also be calculated by matrix dot product.</p>
 <p align="center">
 <img src="/assets/images/Page_rank/pr_c.png" />
 </p>
-<p>Similarly extendting this for all the web pages we end up with the equation:
-\begin{equation}
- PR=(1-d)+ d* C^T.PR 
-\end{equation}
-Where matrix C represents the probability transition ( C[i][j] = probability of the user transitioning from page i to page j).
-The C matrix of our example can be expressed as the matrix represented below. Also the intial page ranks are as assinged 1 for all the web pages.</p>
+<p>Similarly extendting this for all the web pages we end up with the equation:  <br />  ( * represents matrix multiplication)</p>
+<p align="center">
+<img src="/assets/images/Page_rank/eq.png" />
+</p>
 <p align="center">
 <img src="/assets/images/page_rank/matrix.png" /></p>
+<p>\begin{equation}
+ PR=(1-d)+ d* (C^T*PR) 
+\end{equation}</p>
+
+<p>Where matrix C represents the probability transition ( C[i][j] = probability of the user transitioning from page i to page j).
+The C matrix of our example can be expressed as the matrix represented below. Also the intial page ranks are as assinged 1 for all the web pages. The PRs of web pages are calculated until the PRs converge to a certain value.</p>
 
 <h2 id="implementing-page-rank">Implementing Page Rank</h2>
+<p>Page Rank implementation in python:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="k">def</span> <span class="nf">pagerank</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">0.85</span><span class="p">):</span>
+    <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">C</span><span class="p">))</span> 
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">P_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="n">d</span> <span class="o">*</span> <span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">P_</span> <span class="o">-</span> <span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">delta</span> <span class="o">&lt;=</span> <span class="n">eps</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">P_</span>
+        <span class="n">P</span> <span class="o">=</span> <span class="n">P_</span>
+<span class="n">p</span><span class="o">=</span><span class="n">pagerank</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="c">#result</span>
+<span class="c">#p=[1.16, 0.644, 1.19, 0.15]</span>
+</code></pre></div></div>
+<p>Notice: page rank of A is high even it is has only one incoming link.</p>
 
         
       </section>

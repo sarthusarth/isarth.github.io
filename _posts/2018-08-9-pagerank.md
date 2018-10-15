@@ -12,7 +12,7 @@ header:
 ---
 
 
-In simple terms, PageRank is an intuitive way of ranking web pages. Which formed the basis for Google's web indexing algorithm during its early phase. Believe it or not Page Rank is a very intuitive algorithm, which is why I wrote this post (it is that easy!). The only challenging part of Page Rank is scaling it over the whole internet, which is not something anyone might be interested in. Apart from that, I will be covering the following in this post:
+In simple terms, PageRank is an intuitive way of ranking web pages, which formed the basis for google's web indexing algorithm during its early phase. Believe it or not Page Rank is a very intuitive algorithm. In this article, you'll learn about the ituition behind page rank and implementing page rank in python. The article is divided into following sections:
 
 + Basic Idea behind Page Rank 
 + Understanding the Pank Rank algorithm
@@ -63,13 +63,35 @@ The PR(C) can also be calculated by matrix dot product.
 <p align='center'>
 <img src="/assets/images/Page_rank/pr_c.png">
 </p>
-Similarly extendting this for all the web pages we end up with the equation:
-\begin{equation}
- PR=(1-d)+ d* C^T.PR 
-\end{equation}
-Where matrix C represents the probability transition ( C[i][j] = probability of the user transitioning from page i to page j).
-The C matrix of our example can be expressed as the matrix represented below. Also the intial page ranks are as assinged 1 for all the web pages.
+Similarly extendting this for all the web pages we end up with the equation:  <br />  ( * represents matrix multiplication)
+<p align='center'>
+<img src="/assets/images/Page_rank/eq.png">
+</p>
 <p align='center'>
 <img src="/assets/images/page_rank/matrix.png"></p>
+\begin{equation}
+ PR=(1-d)+ d* (C^T*PR) 
+\end{equation}
+
+
+
+Where matrix C represents the probability transition ( C[i][j] = probability of the user transitioning from page i to page j).
+The C matrix of our example can be expressed as the matrix represented below. Also the intial page ranks are as assinged 1 for all the web pages. The PRs of web pages are calculated until the PRs converge to a certain value.
 
 ## Implementing Page Rank
+Page Rank implementation in python:
+```python
+import numpy as np
+def pagerank(C, eps=0.0001, d=0.85):
+    P = np.ones(len(C)) 
+    while True:
+        P_ = np.ones(len(A)) * (1 - d) + d * C.T.dot(P)
+        delta = abs(P_ - P).sum()
+        if delta <= eps:
+            return P_
+        P = P_
+p=pagerank(C)
+#result
+#p=[1.16, 0.644, 1.19, 0.15]
+```
+Notice: page rank of A is high even it is has only one incoming link.
