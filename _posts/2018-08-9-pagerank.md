@@ -68,7 +68,7 @@ Similarly extendting this for all the web pages we end up with the equation:  <b
 <img src="/assets/images/Page_rank/eq.png">
 </p>
 <p align='center'>
-<img src="/assets/images/page_rank/mat.png"></p>
+<img src="/assets/images/Page_rank/mat.png"></p>
 \begin{equation}
  PR=(1-d)+ d* (C^T*PR) 
 \end{equation}
