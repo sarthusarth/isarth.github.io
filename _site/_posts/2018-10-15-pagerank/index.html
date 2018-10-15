@@ -18,27 +18,23 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Home">
 <meta property="og:title" content="PageRank">
-<meta property="og:url" content="http://localhost:4000/_posts/2018-08-9-pagerank/">
+<meta property="og:url" content="http://localhost:4000/_posts/2018-10-15-pagerank/">
 
 
   <meta property="og:description" content="Indexing the web pages">
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/google-logo.png">
-
 
 
   <meta name="twitter:site" content="@isarth23">
   <meta name="twitter:title" content="PageRank">
   <meta name="twitter:description" content="Indexing the web pages">
-  <meta name="twitter:url" content="http://localhost:4000/_posts/2018-08-9-pagerank/">
+  <meta name="twitter:url" content="http://localhost:4000/_posts/2018-10-15-pagerank/">
 
   
     <meta name="twitter:card" content="summary">
     
-      <meta name="twitter:image" content="http://localhost:4000/assets/images/google-logo.png">
-    
   
 
   
@@ -54,7 +50,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/_posts/2018-08-9-pagerank/">
+<link rel="canonical" href="http://localhost:4000/_posts/2018-10-15-pagerank/">
 
 
 
@@ -208,7 +204,7 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>In simple terms, PageRank is an intuitive way of ranking web pages, which formed the basis for google’s web indexing algorithm during its early phase. Believe it or not Page Rank is a very intuitive algorithm. In this article, you’ll learn about the ituition behind page rank and implementing page rank in python. The article is divided into following sections:</p>
+        <p>In simple terms, PageRank is an intuitive way of ranking web pages, which formed the basis for google’s web indexing algorithm during its early phase. In this article, you’ll learn about the ituition behind page rank and implementing page rank in python. The article is divided into following sections:</p>
 
 <ul>
   <li>Basic Idea behind Page Rank</li>
@@ -217,7 +213,7 @@
 </ul>
 
 <h2 id="basic-idea-behind-page-rank">Basic Idea behind Page Rank</h2>
-<p>The intuition behind the Page-Rank is based on the idea that popularity of a webpage is determined not only the number of incoming links but also by the kind on incomings links. Citations from highly ranked pages contribute more than lower ranked web pages. The page rank of a web page A cited by web page B shown in Fig. 1 is given the equation:</p>
+<p>The intuition behind the Page-Rank is based on the idea that popularity of a webpage is determined not only by the number of incoming links but also by the kind of incomings links. Citations from highly ranked pages contribute more than lower ranked web pages. The page rank of a web page A cited by web page B shown in Fig. 1 is given the equation:</p>
 <p align="center">
 <img src="/assets/images/Page_rank/ex.png" />
 <figcaption align="center">Fig.1 Example of web graph.</figcaption>
@@ -238,12 +234,12 @@
 </p>
 <p>Page rank over the complete web graph is calculated until it converges to final values.</p>
 <h2 id="page-rank-algorithm">Page Rank Algorithm</h2>
-<p>To have a better understanding how page rank works, consider a graph (shown by Fig. 2) of webpages having links shown by the arrow. Note if there are web pages with no out link then the do not contribute to the page ranking (they are usually refered as dangling pages).</p>
+<p>To have a better understanding how page rank works, consider a graph (shown by Fig. 2) of webpages having links shown by the arrow. Note that, if there are web pages with no out link then they do not contribute to the page ranking (they are usually refered as dangling pages).</p>
 <p align="center">
 <img src="/assets/images/Page_rank/graph.png" />
 <figcaption align="center">Fig.2</figcaption>
 </p>
-<p>Initially page rank of all the web pages is taken as 1. Weight of the edge is the probability of going from a web page X to Y ( The web page A has 2 out links therefore probability to go a single web page is 1/2 ). After expressing the web graph in terms of probabilities the web graph looks something like shown in the Fig.3. The page rank of each web page is determined by applying the PageRank equation. This process is repeated until the algorithm converges i.e. the values of page rank do change beyond an small value ( know as epsilon usually fixed as 1e-4 ). The damping factor (d) introduced is to add some randomness over the web graph i.e. d is probability that a user will move to the linked web page and 1-d is the probablity of choosing a random web page, it is usually taken as 0.85.</p>
+<p>Initially page rank of all the web pages is taken as 1. Weight of the edge is the probability of going from a web page X to Y ( The web page A has 2 out links therefore probability to go a single web page is 1/2 ). After expressing the web graph in terms of probabilities the web graph looks something like the Fig.3. The page rank of each web page is determined by applying the PageRank equation. This process is repeated until the algorithm converges i.e. the values of page rank do not change beyond a small value ( know as epsilon usually fixed as 1e-4 ). The damping factor (d) introduced is to add some randomness over the web graph i.e. d is probability that a user will move to the linked web page and 1-d is the probablity of choosing a random web page, it is usually taken as 0.85.</p>
 <p align="center">
 <img src="/assets/images/Page_rank/graph_prob.png" />
 <figcaption align="center">Fig.3</figcaption>
@@ -251,7 +247,8 @@
 <p>For iteration 1: <br />
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
- <script type="math/tex">PR(C)=(1-d) + d*( P(A,C)*PR(A) + P(B,C)*PR(B) + P(D,C)*PR(D))</script>
+ <script type="math/tex">PR(C)=(1-d) + d*
+ ( P(A,C)*PR(A) + P(B,C)*PR(B) + P(D,C)*PR(D))</script>
  <br />
  <script type="math/tex">PR(C)=(0.15)+ 0.85*( 0.5*1 + 1*1 + 1*1) = 2.275</script>
 <br />
@@ -291,6 +288,16 @@ The C matrix of our example can be expressed as the matrix represented below. Al
 <p>Final ranking of our example are C &gt; A &gt; B &gt; D !</p>
 
 <p>Notice: page rank of A is high even when it has only one incoming link.</p>
+
+<h2 id="references-">References :</h2>
+<ul>
+  <li>
+    <p><a href="https://www.cs.princeton.edu/~chazelle/courses/BIB/pagerank.htm">Page Rank Explaination</a></p>
+  </li>
+  <li>
+    <p><a href="https://en.wikipedia.org/wiki/PageRank#Iterative">Wikipedia Pagerank</a></p>
+  </li>
+</ul>
 
         
       </section>
