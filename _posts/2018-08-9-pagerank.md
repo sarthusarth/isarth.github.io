@@ -68,7 +68,7 @@ Similarly extendting this for all the web pages we end up with the equation:  <b
 <img src="/assets/images/Page_rank/eq.png">
 </p>
 <p align='center'>
-<img src="/assets/images/page_rank/matrix.png"></p>
+<img src="/assets/images/page_rank/mat.png"></p>
 \begin{equation}
  PR=(1-d)+ d* (C^T*PR) 
 \end{equation}
@@ -94,4 +94,6 @@ p=pagerank(C)
 #result
 #p=[1.16, 0.644, 1.19, 0.15]
 ```
-Notice: page rank of A is high even it is has only one incoming link.
+Final ranking of our example are C > A > B > D !
+
+Notice: page rank of A is high even when it has only one incoming link.
