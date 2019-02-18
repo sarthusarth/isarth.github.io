@@ -1,78 +1,85 @@
-![](https://raw.githubusercontent.com/kkninjae/book/master/github/hero.png)
+# [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/)
 
 
-# Book
+## Credits
 
-Book, a simple and ready-to-use Jekyll theme. [Live](http://kkninjae.github.io/book/).
+### Creator
 
+**Michael Rose**
 
-## How-to
-
-*   [Setup](#setup)
-*   [Customization](#customization)
-*   [Writing Posts](#writing-posts)
-*   [Deploy to Github Page](#deploy-to-gh-pages)
+- <https://mademistakes.com>
+- <https://twitter.com/mmistakes>
+- <https://github.com/mmistakes>
 
 
-### <a name="setup" id>Setup</a>
-
-```sh
-# get a copy of book source code
-$ git clone https://github.com/kkninjae/book.git
-
-# running site locally
-$ jekyll serve -w
-
-# from now, you should be able to start development or customization
-```
-
-
-### <a name="customization">Customization</a>
-
-Book is designed as simple as possible, but few changes can make your site uniq.
-You only need to change the values of keys in `_config.yml` file.
-
-*   Change site path: `baseurl`
-*   Give your site a name: `title`
-*   Make a site favicon: `favicon`
-*   Make a special home button image: `avatar`
-
-
-Last but not least
-
-*   If you are using Google analytics: `ga`
-*   If you are using Disqus commenting system: `disqus`
-
-
-### <a name="writing-posts">Writing Posts</a>
-
-Make a markdown file in `_posts` directory,
-follow [Jekyll post naming convention](https://jekyllrb.com/docs/posts/) to name your post,
-and put following front matter to the top of your post.
-You should be able to start to write your awesome post.
-Read this [POST](https://kkninjae.github.io/book/2015/08/28/how-to-use-book.html) to know more tips.
-
-```markdown
 ---
-title: Your awesome post title
-date: YYYY-MM-DD
----
-```
 
+## License
 
-### <a name="deploy-to-gh-pages">Deploy to Github Page</a>
+The MIT License (MIT)
 
-There is a deploying script built out of box.
-You need to install one more tool before using it which is [npm](https://www.npmjs.com/get-npm).
-This script will push your current static site to `gh-pages` branch.
-If there is no `gh-pages` branch yet, the script will create it for you.
+Copyright (c) 2013-2018 Michael Rose and contributors
 
-```sh
-# start to deploy your site to Github pages
-$ npm run deploy
-```
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-## End.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-If you like this theme, why not give it a star. :)
+Minimal Mistakes incorporates icons from [The Noun Project](https://thenounproject.com/)
+creators Garrett Knoll, Arthur Shlain, and tracy tam.
+Icons are distributed under Creative Commons Attribution 3.0 United States (CC BY 3.0 US).
+
+Minimal Mistakes incorporates [Font Awesome](http://fontawesome.io/),
+Copyright (c) 2017 Dave Gandy.
+Font Awesome is distributed under the terms of the [SIL OFL 1.1](http://scripts.sil.org/OFL)
+and [MIT License](http://opensource.org/licenses/MIT).
+
+Minimal Mistakes incorporates photographs from [Unsplash](https://unsplash.com).
+
+Minimal Mistakes incorporates [Susy](http://susy.oddbird.net/),
+Copyright (c) 2017, Miriam Eric Suzanne.
+Susy is distributed under the terms of the [BSD 3-clause "New" or "Revised" License](https://opensource.org/licenses/BSD-3-Clause).
+
+Minimal Mistakes incorporates [Breakpoint](http://breakpoint-sass.com/).
+Breakpoint is distributed under the terms of the [MIT/GPL Licenses](http://opensource.org/licenses/MIT).
+
+Minimal Mistakes incorporates [FitVids.js](https://github.com/davatron5000/FitVids.js/),
+Copyright (c) 2013 Dave Rubert and Chris Coyier.
+FitVids is distributed under the terms of the [WTFPL License](http://sam.zoy.org/wtfpl/).
+
+Minimal Mistakes incorporates [Magnific Popup](http://dimsemenov.com/plugins/magnific-popup/),
+Copyright (c) 2014-2016 Dmitry Semenov, http://dimsemenov.com.
+Magnific Popup is distributed under the terms of the MIT License.
+
+Minimal Mistakes incorporates [jQuery Smooth Scroll](https://github.com/kswedberg/jquery-smooth-scroll),
+Copyright (c) 2017 Karl Swedberg.
+jQuery Smooth Scroll is distributed under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+Minimal Mistakes incorporates [GreedyNav.js](https://github.com/lukejacksonn/GreedyNav),
+Copyright (c) 2015 Luke Jackson.
+GreedyNav.js is distributed under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+Minimal Mistakes incorporates [Jekyll Group-By-Array](https://github.com/mushishi78/jekyll-group-by-array),
+Copyright (c) 2015 Max White <mushishi78@gmail.com>.
+Jekyll Group-By-Array is distributed under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+Minimal Mistakes incorporates [@allejo's Pure Liquid Jekyll Table of Contents](https://allejo.io/blog/a-jekyll-toc-in-liquid-only/),
+Copyright (c) 2017 Vladimir Jimenez.
+Pure Liquid Jekyll Table of Contents is distributed under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+Minimal Mistakes incorporates [Lunr](http://lunrjs.com),
+Copyright (c) 2017 Oliver Nightingale.
+Lunr is distributed under the terms of the [MIT License](http://opensource.org/licenses/MIT).
