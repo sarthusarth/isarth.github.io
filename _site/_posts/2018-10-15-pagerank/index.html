@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>PageRank - Blog</title>
+<!-- begin _includes/seo.html --><title>Understanding PageRank - Blog</title>
 <meta name="description" content="Indexing the web pages">
 
 
@@ -17,7 +17,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Blog">
-<meta property="og:title" content="PageRank">
+<meta property="og:title" content="Understanding PageRank">
 <meta property="og:url" content="http://localhost:4000/_posts/2018-10-15-pagerank/">
 
 
@@ -28,7 +28,7 @@
 
 
   <meta name="twitter:site" content="@isarth23">
-  <meta name="twitter:title" content="PageRank">
+  <meta name="twitter:title" content="Understanding PageRank">
   <meta name="twitter:description" content="Indexing the web pages">
   <meta name="twitter:url" content="http://localhost:4000/_posts/2018-10-15-pagerank/">
 
@@ -171,7 +171,7 @@
     <div class="wrapper">
       <h1 class="page__title" itemprop="headline">
         
-          PageRank
+          Understanding PageRank
 
         
       </h1>
@@ -217,7 +217,7 @@
     
       
       
-        <li class="current">PageRank</li>
+        <li class="current">Understanding PageRank</li>
       
     
   </ol>
@@ -230,7 +230,7 @@
   
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="PageRank">
+    <meta itemprop="headline" content="Understanding PageRank">
     <meta itemprop="description" content="Indexing the web pages">
     
     
@@ -239,6 +239,23 @@
       
 
       <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#basic-idea-behind-page-rank">Basic Idea behind Page Rank</a></li>
+  <li><a href="#page-rank-algorithm">Page Rank Algorithm</a>
+    <ul>
+      <li><a href="#step-1">STEP 1</a></li>
+      <li><a href="#step-2">STEP 2</a></li>
+    </ul>
+  </li>
+  <li><a href="#implementing-page-rank">Implementing Page Rank</a></li>
+  <li><a href="#references">References</a></li>
+</ul>
+            </nav>
+          </aside>
         
         <p>In simple terms, PageRank is an intuitive way of ranking web pages, which formed the basis for Google’s web indexing algorithm during its early phase. In this article, you’ll learn about the intuition behind page rank and implementing page rank in python. The article is divided into the following sections:</p>
 
@@ -302,10 +319,11 @@ Taking it further let’s take an example for calculation the PR of a web page A
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<p><script type="math/tex">PR(C)=(1-d)*(1/N) + d*
- ( P(A,C)*PR(A) + P(B,C)*PR(B) + P(D,C)*PR(D))</script>
- <br />
- <script type="math/tex">PR(C)=(0.15)*(1/4)+ 0.85*( 0.5*1 + 1*1 + 1*1) = 2.1625</script>
+<p><script type="math/tex">PR(C)=(1-d)*(1/N) + d*(P(A,C)*PR(A) + P(B,C)*PR(B)</script>
+ <script type="math/tex">+ P(D,C)*PR(D))</script>
+ <br /></p>
+
+<p><script type="math/tex">PR(C)=(.15)*(1/4)+ .85*(.5*1 + 1*1 + 1*1) = 2.16</script>
 <br />
 <br />
 The PR(C) can also be calculated by matrix dot product.</p>
@@ -330,7 +348,7 @@ The C matrix of our example can be expressed as the matrix represented above. Al
 <span class="k">def</span> <span class="nf">pagerank</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">0.85</span><span class="p">):</span>
     <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">C</span><span class="p">))</span> 
     <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
-        <span class="n">P_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="n">d</span> <span class="o">*</span> <span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+        <span class="n">P_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="n">d</span> <span class="o">*</span> <span class="n">C</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
         <span class="n">delta</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">P_</span> <span class="o">-</span> <span class="n">P</span><span class="p">)</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">delta</span> <span class="o">&lt;=</span> <span class="n">eps</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">P_</span>
