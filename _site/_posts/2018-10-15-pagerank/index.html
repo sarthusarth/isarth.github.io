@@ -311,7 +311,7 @@ Taking it further let’s take an example for calculation the PR of a web page A
 </p>
 <p>Probability transition matrix is represented as:</p>
 <p align="center">
-<img src="/assets/images/Page_rank/mat.png" /></p>
+<img src="/assets/images/Page_rank/mat.JPEG" /></p>
 
 <h3 id="step-2">STEP 2</h3>
 <p>The page rank of each web page is determined by applying the PageRank equation. This process is repeated until the algorithm converges i.e. the values of page rank do not change beyond a small value ( know as epsilon usually fixed as 1e-4 ). The damping factor (d) introduced is to add some randomness over the web graph i.e. d is a probability that a user will move to the linked web page and 1-d is the probability of choosing a random web page, it is usually taken as 0.85.</p>
@@ -319,20 +319,21 @@ Taking it further let’s take an example for calculation the PR of a web page A
 <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<p><script type="math/tex">PR(C)=(1-d)*(1/N) + d*(P(A,C)*PR(A) + P(B,C)*PR(B)</script>
- <script type="math/tex">+ P(D,C)*PR(D))</script>
- <br /></p>
+<p align="center">
+<img src="/assets/images/Page_rank/formula.JPEG" />
+</p>
+<p><br /></p>
 
 <p><script type="math/tex">PR(C)=(.15)*(1/4)+ .85*(.5*1 + 1*1 + 1*1) = 2.16</script>
 <br />
 <br />
 The PR(C) can also be calculated by matrix dot product.</p>
 <p align="center">
-<img src="/assets/images/Page_rank/pr_c.png" />
+<img src="/assets/images/Page_rank/pr_c.JPEG" />
 </p>
 <p>Similarly, extending this for all the web pages we end up with the equation:  <br />  ( * represents matrix multiplication)</p>
 <p align="center">
-<img src="/assets/images/Page_rank/eq.png" />
+<img src="/assets/images/Page_rank/eq.JPEG" />
 </p>
 
 <p>\begin{equation}
