@@ -5,7 +5,7 @@ var store = [{
         "url": "http://localhost:4000/pagerank/",
         "teaser":null},{
         "title": "Extractive Text Summary using TextRank ",
-        "excerpt":"Still in progress","categories": [],
+        "excerpt":"Main purpose of this blog post is provide undestanding of TextRank, which very intutive way of summarizing text. TextRank is quite old techinique, it was originally published in 2004 but it still popular extractive summarization techinique and very easy to understand and does not require any training, thus ideal for...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/hello/",
-        "teaser":null}]
+        "teaser":"http://localhost:4000/assets/images/textrank/fig1.JPEG"}]

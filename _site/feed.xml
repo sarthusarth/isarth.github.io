@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-01T01:47:30+05:30</updated><id>http://localhost:4000/</id><title type="html">Blog</title><subtitle>Blog about Deep Learning</subtitle><author><name>Sarthak Anand</name><email>isarth@me.com</email></author><entry><title type="html">Extractive Text Summary using TextRank</title><link href="http://localhost:4000/hello/" rel="alternate" type="text/html" title="Extractive Text Summary using TextRank " /><published>2018-12-09T00:00:00+05:30</published><updated>2018-12-09T00:00:00+05:30</updated><id>http://localhost:4000/hello</id><content type="html" xml:base="http://localhost:4000/hello/">&lt;p&gt;Still in progress&lt;/p&gt;</content><author><name>Sarthak Anand</name><email>isarth@me.com</email></author><summary type="html">Still in progress</summary></entry><entry><title type="html">Understanding PageRank</title><link href="http://localhost:4000/pagerank/" rel="alternate" type="text/html" title="Understanding PageRank" /><published>2018-10-15T00:00:00+05:30</published><updated>2018-10-15T00:00:00+05:30</updated><id>http://localhost:4000/pagerank</id><content type="html" xml:base="http://localhost:4000/pagerank/">&lt;p&gt;In simple terms, PageRank is an intuitive way of ranking web pages, which formed the basis for Google’s web indexing algorithm during its early phase. In this article, you’ll learn about the intuition behind page rank and implementing page rank in python. The article is divided into the following sections:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-03-07T17:59:49+05:30</updated><id>http://localhost:4000/</id><title type="html">Blog</title><subtitle>Blog about Deep Learning</subtitle><author><name>Sarthak Anand</name><email>isarth@me.com</email></author><entry><title type="html">Extractive Text Summary using TextRank</title><link href="http://localhost:4000/hello/" rel="alternate" type="text/html" title="Extractive Text Summary using TextRank " /><published>2018-12-09T00:00:00+05:30</published><updated>2018-12-09T00:00:00+05:30</updated><id>http://localhost:4000/hello</id><content type="html" xml:base="http://localhost:4000/hello/">&lt;p&gt;Main purpose of this blog post is provide undestanding of TextRank, which very intutive way of summarizing text. TextRank is quite old techinique, it was originally published in 2004 but it still popular extractive summarization techinique and very easy to understand and does not require any training, thus ideal for creating baselines. In order to understand how text-rank ranks the sentences, make sure you’re familiar with &lt;a href=&quot;https://isarth.github.io/pagerank/&quot;&gt;Page-Rank&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;abstractive-and-extractive-summarization&quot;&gt;Abstractive and Extractive summarization&lt;/h3&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/textrank/fig1.JPEG&quot; /&gt;
+
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Extractive&lt;/strong&gt;  : It is similar to highlighting, We pick relevantant sentences from the document, that make up the summary.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Abstractive&lt;/strong&gt; : It is similar to reading the whole document and then making notes in our own words, that make up the summary.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;text-rank&quot;&gt;Text Rank&lt;/h3&gt;
+&lt;p&gt;Quoting from the paper &lt;em&gt;“TextRank – is a graph-based unsupervised method for keyword and sentence
+extraction”.&lt;/em&gt; Because it is unsupervised ranking method, it does require any training and supervised data.&lt;br /&gt;&lt;br /&gt;
+ Focusing only on the summarization or sentence extraction, basic intuition behind text-rank is that, we want to extract sentences that can cover a major part of text or which are a lot similar to other sentences. And in order extract them we somehow need to rank them based on this simlarity criteria, this is where Page-rank comes into picture. It is used for ranking the sentences based on their similarity.&lt;/p&gt;
+
+&lt;h3 id=&quot;algorithm&quot;&gt;Algorithm&lt;/h3&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;/assets/images/textrank/fig2.JPEG&quot; /&gt;
+
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;We construct a graph of sentences where each node is a represents a sentence and all the sentences are connected to each other by (directed on an undirected) edges.&lt;/li&gt;
+  &lt;li&gt;The weight of the edge is a similarity criteria between the two sentences. And then we apply Page rank over the graph to rank the sententeces.&lt;/li&gt;
+  &lt;li&gt;Finally we select K top sentences that represent our summary.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Basically this is it. Nothing complex and still provides decent results.&lt;/p&gt;
+
+&lt;h3 id=&quot;sentence-similarity&quot;&gt;Sentence similarity&lt;/h3&gt;
+
+&lt;p&gt;The weight of the edge is value representing the similarity between two sentences. In the paper it was calculated using number of common words present in the sentence. In order to repress the selection of long sentences the value is divided by the lenghts of the sentences. &lt;br /&gt;&lt;br /&gt;
+Finally, given two sentences Si and Sj  , with a sentence being represented by the set of Ni words that appear in the sentence: Si = w1,w2,w3…wn the similarity of Si and Sj is defined as&lt;/p&gt;
+
+&lt;script type=&quot;text/javascript&quot; async=&quot;&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;
+&lt;/script&gt;
+
+&lt;p&gt;\begin{equation}
+ Similarity(S_i,S_j)=\dfrac{| {w_k|w_k \epsilon{S_i} \space \&amp;amp; \space w_k \epsilon{S_j}| } }{log(|S_i|)+log(|S_j|)} 
+\end{equation}&lt;/p&gt;
+
+&lt;h3 id=&quot;implemetation-of-text-rank&quot;&gt;Implemetation of Text rank&lt;/h3&gt;
+
+&lt;p&gt;In order to explain it I made an interactive noteboook in Colab. Check out !!&lt;/p&gt;</content><author><name>Sarthak Anand</name><email>isarth@me.com</email></author><summary type="html">Main purpose of this blog post is provide undestanding of TextRank, which very intutive way of summarizing text. TextRank is quite old techinique, it was originally published in 2004 but it still popular extractive summarization techinique and very easy to understand and does not require any training, thus ideal for creating baselines. In order to understand how text-rank ranks the sentences, make sure you’re familiar with Page-Rank.</summary></entry><entry><title type="html">Understanding PageRank</title><link href="http://localhost:4000/pagerank/" rel="alternate" type="text/html" title="Understanding PageRank" /><published>2018-10-15T00:00:00+05:30</published><updated>2018-10-15T00:00:00+05:30</updated><id>http://localhost:4000/pagerank</id><content type="html" xml:base="http://localhost:4000/pagerank/">&lt;p&gt;In simple terms, PageRank is an intuitive way of ranking web pages, which formed the basis for Google’s web indexing algorithm during its early phase. In this article, you’ll learn about the intuition behind page rank and implementing page rank in python. The article is divided into the following sections:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Basic Idea behind Page Rank&lt;/li&gt;

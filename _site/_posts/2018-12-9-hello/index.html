@@ -23,6 +23,8 @@
 
 
 
+  <meta property="og:image" content="http://localhost:4000/assets/images/textrank/fig1.JPEG">
+
 
 
   <meta name="twitter:site" content="@isarth23">
@@ -32,6 +34,8 @@
 
   
     <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/textrank/fig1.JPEG">
     
   
 
@@ -209,7 +213,65 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Still in progress</p>
+          <aside class="sidebar__right">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On This Page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#abstractive-and-extractive-summarization">Abstractive and Extractive summarization</a></li>
+  <li><a href="#text-rank">Text Rank</a></li>
+  <li><a href="#algorithm">Algorithm</a></li>
+  <li><a href="#sentence-similarity">Sentence similarity</a></li>
+  <li><a href="#implemetation-of-text-rank">Implemetation of Text rank</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>Main purpose of this blog post is provide undestanding of TextRank, which very intutive way of summarizing text. TextRank is quite old techinique, it was originally published in 2004 but it still popular extractive summarization techinique and very easy to understand and does not require any training, thus ideal for creating baselines. In order to understand how text-rank ranks the sentences, make sure you’re familiar with <a href="https://isarth.github.io/pagerank/">Page-Rank</a>.</p>
+
+<h3 id="abstractive-and-extractive-summarization">Abstractive and Extractive summarization</h3>
+<p align="center">
+<img src="/assets/images/textrank/fig1.JPEG" />
+
+</p>
+<ul>
+  <li><strong>Extractive</strong>  : It is similar to highlighting, We pick relevantant sentences from the document, that make up the summary.</li>
+  <li><strong>Abstractive</strong> : It is similar to reading the whole document and then making notes in our own words, that make up the summary.</li>
+</ul>
+
+<h3 id="text-rank">Text Rank</h3>
+<p>Quoting from the paper <em>“TextRank – is a graph-based unsupervised method for keyword and sentence
+extraction”.</em> Because it is unsupervised ranking method, it does require any training and supervised data.<br /><br />
+ Focusing only on the summarization or sentence extraction, basic intuition behind text-rank is that, we want to extract sentences that can cover a major part of text or which are a lot similar to other sentences. And in order extract them we somehow need to rank them based on this simlarity criteria, this is where Page-rank comes into picture. It is used for ranking the sentences based on their similarity.</p>
+
+<h3 id="algorithm">Algorithm</h3>
+<p align="center">
+<img src="/assets/images/textrank/fig2.JPEG" />
+
+</p>
+<ul>
+  <li>We construct a graph of sentences where each node is a represents a sentence and all the sentences are connected to each other by (directed on an undirected) edges.</li>
+  <li>The weight of the edge is a similarity criteria between the two sentences. And then we apply Page rank over the graph to rank the sententeces.</li>
+  <li>Finally we select K top sentences that represent our summary.</li>
+</ul>
+
+<p>Basically this is it. Nothing complex and still provides decent results.</p>
+
+<h3 id="sentence-similarity">Sentence similarity</h3>
+
+<p>The weight of the edge is value representing the similarity between two sentences. In the paper it was calculated using number of common words present in the sentence. In order to repress the selection of long sentences the value is divided by the lenghts of the sentences. <br /><br />
+Finally, given two sentences Si and Sj  , with a sentence being represented by the set of Ni words that appear in the sentence: Si = w1,w2,w3…wn the similarity of Si and Sj is defined as</p>
+
+<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<p>\begin{equation}
+ Similarity(S_i,S_j)=\dfrac{| {w_k|w_k \epsilon{S_i} \space \&amp; \space w_k \epsilon{S_j}| } }{log(|S_i|)+log(|S_j|)} 
+\end{equation}</p>
+
+<h3 id="implemetation-of-text-rank">Implemetation of Text rank</h3>
+
+<p>In order to explain it I made an interactive noteboook in Colab. Check out !!</p>
+
 
         
       </section>
