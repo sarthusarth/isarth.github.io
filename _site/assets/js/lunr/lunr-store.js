@@ -5,7 +5,7 @@ var store = [{
         "url": "http://localhost:4000/pagerank/",
         "teaser":null},{
         "title": "Extractive Text Summary using TextRank ",
-        "excerpt":"Main purpose of this blog post is provide undestanding of TextRank, which very intutive way of summarizing text. TextRank is quite old techinique, it was originally published in 2004 but it still popular extractive summarization techinique and very easy to understand and does not require any training, thus ideal for...","categories": [],
+        "excerpt":"For someone familiar with NLP and Deep learning, the Seq2Seq models come first in mind when we talk about summarization. But the main issue with it is that it requires a significant amount of data and resources for training such networks. In this post, I’ll cover TextRank which doesn’t require...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/hello/",
         "teaser":"http://localhost:4000/assets/images/textrank/fig1.JPEG"}]
