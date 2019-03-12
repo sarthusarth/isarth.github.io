@@ -13,6 +13,7 @@ share: false
 toc: true
 
 ---
+
 For someone familiar with NLP and Deep learning, the Seq2Seq models come first in mind when we talk about summarization. But the main issue with it is that it requires a significant amount of data and resources for training such networks. In this post, I'll cover TextRank which doesn't require any training at all.
 
 #### Goals
