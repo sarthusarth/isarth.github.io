@@ -4,6 +4,7 @@ header:
   overlay_color: "#333"
   teaser: /assets/images/research/img.png
 title:  "Why did I decide to pursue research over Job? "
+excerpt: "Random thoughts"
 breadcrumbs: true
 share: false
 #permalink: /hello/
