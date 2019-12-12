@@ -33,8 +33,7 @@ Before going through TextRank, let us first understand, what are the ways we can
 * **Abstractive** : It is similar to reading the whole document and then making notes in our own words, that make up the summary. Techniques used for the abstractive summarization is the popular Seq2Seq LSTM networks or attention based models.
 
 ### Text Rank
-Quoting from the paper *"TextRank – is a graph-based unsupervised method for keyword and sentence
-extraction".* Because it is unsupervised ranking method, it does require any training and supervised data.<br/><br />
+Quoting from the paper **"TextRank – is a graph-based unsupervised method for keyword and sentence extraction".** Because it is unsupervised ranking method, it does require any training and supervised data.<br/><br />
  Focusing only on the summarization or sentence extraction, basic intuition behind text-rank is that, we want to extract sentences that can cover a major part of the text or which are a lot similar to other sentences. And in order to extract them, we somehow need to rank them based on this similarity criteria, this is where Page-rank comes into the picture. It is used for ranking the sentences based on their similarity.
 
 ### Algorithm
