@@ -2,6 +2,7 @@
 layout: single
 header:
   #image: /assets/images/textrank/fig1.JPEG
+  overlay_color: "#333"
   teaser: /assets/images/textrank/fig1.JPEG
 title:  "Extractive Text Summary using TextRank "
 breadcrumbs: true
